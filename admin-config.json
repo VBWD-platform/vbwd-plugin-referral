@@ -1,0 +1,14 @@
+{
+  "name": "referral",
+  "display_name": "VBWD Referral",
+  "icon": "users",
+  "admin_section": "sales",
+  "settings_schema": [
+    {
+      "key": "debug_mode",
+      "label": "Debug mode",
+      "type": "boolean",
+      "default": false
+    }
+  ]
+}
