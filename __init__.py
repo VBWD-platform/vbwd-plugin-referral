@@ -47,7 +47,7 @@ class ReferralPlugin(BasePlugin):
     def metadata(self) -> PluginMetadata:
         return PluginMetadata(
             name="referral",
-            version="0.1.0",
+            version="26.6",
             description="Internal VBWD referral coupons with issuer token commission",
             author="VBWD",
             dependencies=["discount", "meinchat"],
