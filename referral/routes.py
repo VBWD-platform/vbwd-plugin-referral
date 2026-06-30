@@ -205,7 +205,9 @@ def _matches_search(row: dict, search: str) -> bool:
     return False
 
 
-def _apply_sort(rows: List[dict], *, sort_field: Optional[str], order: str) -> List[dict]:
+def _apply_sort(
+    rows: List[dict], *, sort_field: Optional[str], order: str
+) -> List[dict]:
     if not sort_field or sort_field not in _SORTABLE_FIELDS:
         sort_field = "issued_at"
     reverse = order.lower() != "asc"

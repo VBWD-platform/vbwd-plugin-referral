@@ -109,9 +109,7 @@ class ReferralService:
         (never returns a half-built row) on a bad template or exhausted codes.
         """
         settings = self.get_settings()
-        template_coupon = self._resolve_template_coupon(
-            settings, template_coupon_code
-        )
+        template_coupon = self._resolve_template_coupon(settings, template_coupon_code)
 
         normalized_prefix = normalize_prefix(raw_prefix)
         if not normalized_prefix:
@@ -243,8 +241,8 @@ class ReferralService:
             )
             return None
 
-        referral_coupon = (
-            self._referral_coupon_repository.find_unused_by_coupon_id(coupon_id)
+        referral_coupon = self._referral_coupon_repository.find_unused_by_coupon_id(
+            coupon_id
         )
         if referral_coupon is None:
             # Not a referral coupon (a plain discount coupon) → nothing to pay.
@@ -295,9 +293,7 @@ class ReferralService:
             return int(Decimal(str(referral_coupon.commission_value)))
 
         percent = Decimal(str(referral_coupon.commission_value))
-        commission_currency = (
-            Decimal(str(sale_net_amount)) * percent / Decimal("100")
-        )
+        commission_currency = Decimal(str(sale_net_amount)) * percent / Decimal("100")
         tokens_per_currency_unit = self._tokens_per_currency_unit_provider()
         commission_tokens = commission_currency * tokens_per_currency_unit
         return int(commission_tokens)

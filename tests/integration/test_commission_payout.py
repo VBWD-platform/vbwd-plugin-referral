@@ -170,7 +170,9 @@ def test_percent_of_sale_commission_credits_issuer(app, db):
 
     # subtotal 200, 10% template discount → net 200; 10% commission = 20 currency
     # at 10 tokens/unit → 200 tokens.
-    _redeem(db.session, code=referral_coupon.coupon_code, buyer=buyer, subtotal="200.00")
+    _redeem(
+        db.session, code=referral_coupon.coupon_code, buyer=buyer, subtotal="200.00"
+    )
 
     token_service = app.container.token_service()
     assert token_service.get_balance(issuer.id) == 200

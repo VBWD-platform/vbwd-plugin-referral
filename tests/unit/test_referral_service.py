@@ -64,9 +64,7 @@ def test_get_settings_creates_singleton_when_absent():
 
 
 def test_set_settings_round_trip():
-    existing = _make_settings(
-        ReferralCommissionType.ABSOLUTE_TOKENS, Decimal("0"), []
-    )
+    existing = _make_settings(ReferralCommissionType.ABSOLUTE_TOKENS, Decimal("0"), [])
     settings_repo = MagicMock()
     settings_repo.get_singleton.return_value = existing
     settings_repo.save.side_effect = lambda row: row
@@ -146,17 +144,13 @@ def test_mint_produces_patterned_code_cloned_from_template(monkeypatch):
 
 
 def test_mint_without_configured_template_raises():
-    settings = _make_settings(
-        ReferralCommissionType.ABSOLUTE_TOKENS, Decimal("10"), []
-    )
+    settings = _make_settings(ReferralCommissionType.ABSOLUTE_TOKENS, Decimal("10"), [])
     settings_repo = MagicMock()
     settings_repo.get_singleton.return_value = settings
 
     service = _build_service(settings_repo=settings_repo)
     with pytest.raises(ReferralError):
-        service.mint(
-            issuer_user_id=uuid4(), issuer_nickname="Bob", raw_prefix="REF_"
-        )
+        service.mint(issuer_user_id=uuid4(), issuer_nickname="Bob", raw_prefix="REF_")
 
 
 def test_mint_unknown_template_lists_valid(monkeypatch):

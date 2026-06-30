@@ -196,9 +196,7 @@ class ReferralPlugin(BasePlugin):
         from plugins.bot_base.bot_base.types import BotReply
 
         if context.identity is None:
-            return BotReply(
-                text="Please connect your account first, then try again."
-            )
+            return BotReply(text="Please connect your account first, then try again.")
 
         issuer_user_id = context.identity.vbwd_user_id
         user = self._resolve_user(issuer_user_id)

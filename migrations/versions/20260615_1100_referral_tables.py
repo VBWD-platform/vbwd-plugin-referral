@@ -111,9 +111,7 @@ def upgrade() -> None:
         op.create_index(
             "ix_referral_coupon_coupon_code", "referral_coupon", ["coupon_code"]
         )
-        op.create_index(
-            "ix_referral_coupon_status", "referral_coupon", ["status"]
-        )
+        op.create_index("ix_referral_coupon_status", "referral_coupon", ["status"])
         op.create_index(
             "ix_referral_coupon_invoice_id", "referral_coupon", ["invoice_id"]
         )

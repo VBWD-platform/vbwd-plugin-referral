@@ -29,9 +29,7 @@ class ReferralSettings(BaseModel):
         default=ReferralCommissionType.ABSOLUTE_TOKENS,
     )
     commission_value = db.Column(db.Numeric(12, 4), nullable=False, default=0)
-    selected_template_coupon_ids = db.Column(
-        JSONB, nullable=False, default=list
-    )
+    selected_template_coupon_ids = db.Column(JSONB, nullable=False, default=list)
 
     def to_dict(self) -> dict:
         return {

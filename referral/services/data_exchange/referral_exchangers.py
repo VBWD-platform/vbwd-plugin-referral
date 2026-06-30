@@ -128,9 +128,7 @@ def build_referral_exchangers(session: Any) -> List[EntityExchanger]:
             cluster=CLUSTER_SALES,
             natural_key="coupon_code",
             model_class=ReferralCoupon,
-            repository=_SessionModelRepository(
-                session, ReferralCoupon, "coupon_code"
-            ),
+            repository=_SessionModelRepository(session, ReferralCoupon, "coupon_code"),
             session=session,
             public_fields=_PUBLIC_FIELDS,
             supported_formats=frozenset({"json", "csv"}),

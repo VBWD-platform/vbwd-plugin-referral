@@ -56,9 +56,7 @@ def _ensure_referral_commission_enum_value(database) -> None:
     from sqlalchemy import text
 
     engine = database.engine
-    with engine.connect().execution_options(
-        isolation_level="AUTOCOMMIT"
-    ) as connection:
+    with engine.connect().execution_options(isolation_level="AUTOCOMMIT") as connection:
         connection.execute(
             text(
                 "ALTER TYPE tokentransactiontype "

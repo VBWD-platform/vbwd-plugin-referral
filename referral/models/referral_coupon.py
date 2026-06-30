@@ -38,9 +38,7 @@ class ReferralCoupon(BaseModel):
 
     __tablename__ = "referral_coupon"
     __table_args__ = (
-        UniqueConstraint(
-            "coupon_id", "invoice_id", name="uq_referral_coupon_invoice"
-        ),
+        UniqueConstraint("coupon_id", "invoice_id", name="uq_referral_coupon_invoice"),
     )
 
     issuer_user_id = db.Column(

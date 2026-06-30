@@ -31,9 +31,7 @@ class ReferralCouponRepository:
             .first()
         )
 
-    def find_unused_by_coupon_id(
-        self, coupon_id: UUID
-    ) -> Optional[ReferralCoupon]:
+    def find_unused_by_coupon_id(self, coupon_id: UUID) -> Optional[ReferralCoupon]:
         """The not-yet-redeemed referral row for a discount coupon, if any."""
         return (
             self._session.query(ReferralCoupon)
