@@ -31,6 +31,8 @@ jobs:
         run: |
           git clone --depth=1 -q https://github.com/VBWD-platform/vbwd-plugin-discount.git vbwd-backend/plugins/discount || true
           git clone --depth=1 -q https://github.com/VBWD-platform/vbwd-plugin-meinchat.git vbwd-backend/plugins/meinchat || true
+          # Integration tests import plugins.bot_base.
+          git clone --depth=1 -q https://github.com/VBWD-platform/vbwd-plugin-bot-base.git vbwd-backend/plugins/bot_base || true
 
       # ── 3. Style checks (black · flake8 · mypy) ───────────────────────────
       - name: Set up Python 3.11
